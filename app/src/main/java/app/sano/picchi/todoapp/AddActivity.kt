@@ -42,6 +42,7 @@ class AddActivity : AppCompatActivity() {
             memo.title = title
             memo.updateDate = updateDate
             memo.content = content
+            memo.ischeck = false
 
 
         }

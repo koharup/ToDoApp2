@@ -9,4 +9,6 @@ public class Memo extends RealmObject {
     public String updateDate;
     //内容
     public String content;
+    //チェックボックス
+    public boolean ischeck;
 }

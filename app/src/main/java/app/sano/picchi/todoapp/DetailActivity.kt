@@ -26,20 +26,20 @@ class DetailActivity : AppCompatActivity() {
 
         titleEditText = findViewById(R.id.titleEditText) as EditText
         contentEditText = findViewById(R.id.contentEditText) as EditText
-        //showData()
+        showData()
 
 
     }
 
     fun showData() {
-        val memo = realm.where(Memo::class.java).equalTo(
+        val memo
+                = realm.where(Memo::class.java).equalTo(
             "updateDate",
             this.intent.getStringExtra("updateDate")
         ).findFirst()
 
-        titleText.setText(memo.title)
-        contentText.setText(memo.content)
-
+        titleEditText.setText(memo?.title)
+        contentEditText.setText(memo?.content)
     }
 
     fun update(view: View) {
@@ -50,8 +50,8 @@ class DetailActivity : AppCompatActivity() {
 
         //更新する
         realm.executeTransaction {
-            memo.title = titleText.text.toString()
-            memo.content = contentText.text.toString()
+            memo?.title = titleText.text.toString()
+            memo?.content = contentText.text.toString()
         }
 
         //画面を閉じる
