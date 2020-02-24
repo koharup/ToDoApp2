@@ -17,6 +17,7 @@ class DetailActivity : AppCompatActivity() {
     lateinit var contentEditText: EditText
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -50,8 +51,8 @@ class DetailActivity : AppCompatActivity() {
 
         //更新する
         realm.executeTransaction {
-            memo?.title = titleText.text.toString()
-            memo?.content = contentText.text.toString()
+            memo?.title = titleEditText.text.toString()
+            memo?.content = contentEditText.text.toString()
         }
 
         //画面を閉じる

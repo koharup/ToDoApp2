@@ -3,11 +3,17 @@ package app.sano.picchi.todoapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.widget.EditText
 import io.realm.Realm
 import java.text.SimpleDateFormat
 import java.util.*
+import android.R
+import android.view.MenuItem
+import android.widget.ListView
+import android.widget.TextView
+import android.view.MenuInflater
 
 class AddActivity : AppCompatActivity() {
     //realm型の変数を宣言
@@ -20,15 +26,15 @@ class AddActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add)
+        setContentView(app.sano.picchi.todoapp.R.layout.activity_add)
 
         //realmを開く
         Realm.init(this)
         realm = Realm.getDefaultInstance()
 
         //関連付け
-        titleEditText = findViewById(R.id.titleEditText) as EditText
-        contentEditText = findViewById(R.id.contentEditText) as EditText
+        titleEditText = findViewById(app.sano.picchi.todoapp.R.id.titleEditText) as EditText
+        contentEditText = findViewById(app.sano.picchi.todoapp.R.id.contentEditText) as EditText
 
 
 
@@ -99,6 +105,10 @@ class AddActivity : AppCompatActivity() {
         realm.close()
     }
 }
+
+
+
+
 
 
 
