@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,6 +20,7 @@
             android:onClick="create"
             android:textColor="#5D8D7F" />
 
+
         <EditText
             android:id="@+id/contentEditText"
             android:layout_width="match_parent"
@@ -31,6 +33,16 @@
             android:textColor="#5D8D7F" />
 
 
+        <ImageView
+            android:id="@+id/picImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="#cdcdcd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
@@ -40,6 +52,7 @@
             android:onClick="create"
             android:text="作成"
             android:textColor="@android:color/background_light" />
+
     </LinearLayout>
 
 </RelativeLayout>

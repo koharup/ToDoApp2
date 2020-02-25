@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import kotlinx.android.synthetic.main.activity_add.view.*
 import kotlinx.android.synthetic.main.layout_item_memo.view.*
 
 class MemoAdapter internal constructor(
@@ -21,9 +22,11 @@ class MemoAdapter internal constructor(
         layoutinflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
+    //入れるとこ
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
         val memo = getItem(position)
+
 
         if (convertView == null) {
             convertView = layoutinflater.inflate(R.layout.layout_item_memo, null)
@@ -35,10 +38,12 @@ class MemoAdapter internal constructor(
         checkBox.setOnClickListener{
             listener.onItemCheckClick(position,checkBox.isChecked)
         }
-        //titleTextにセットする(memoクラスのtitleを)!!!
+        //titleTextにセットする(memoクラスのtitleを)
         convertView.titleText.text = memo!!.title
         convertView.contentText.text = memo.content
         checkBox.setChecked(memo.ischeck)
+//        imageView.setImageURI(memo.uri)
+
         return convertView
     }
 }

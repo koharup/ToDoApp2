@@ -1,11 +1,14 @@
 package app.sano.picchi.todoapp
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import io.realm.Realm
-import kotlinx.android.synthetic.main.layout_item_memo.*
+import kotlinx.android.synthetic.main.activity_add.*
 
 class DetailActivity : AppCompatActivity() {
 
@@ -15,6 +18,8 @@ class DetailActivity : AppCompatActivity() {
     //EditText型の変数宣言
     lateinit var titleEditText: EditText
     lateinit var contentEditText: EditText
+
+    lateinit var bitmap: Bitmap
 
 
 
@@ -41,6 +46,9 @@ class DetailActivity : AppCompatActivity() {
 
         titleEditText.setText(memo?.title)
         contentEditText.setText(memo?.content)
+        bitmap = BitmapFactory.decodeByteArray(memo?.bitmap, 0, memo?.bitmap?.size!!)
+        picImage.setImageBitmap(bitmap)
+
     }
 
     fun update(view: View) {

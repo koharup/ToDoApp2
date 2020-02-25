@@ -11,4 +11,7 @@ public class Memo extends RealmObject {
     public String content;
     //チェックボックス
     public boolean ischeck;
+
+    public byte[] bitmap;
+
 }
