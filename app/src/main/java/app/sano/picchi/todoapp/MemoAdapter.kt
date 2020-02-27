@@ -22,7 +22,9 @@ class MemoAdapter internal constructor(
         layoutinflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
-    //入れるとこ
+
+
+    //中身を入れる
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
         val memo = getItem(position)
@@ -38,6 +40,7 @@ class MemoAdapter internal constructor(
         checkBox.setOnClickListener{
             listener.onItemCheckClick(position,checkBox.isChecked)
         }
+
         //titleTextにセットする(memoクラスのtitleを)
         convertView.titleText.text = memo!!.title
         convertView.contentText.text = memo.content

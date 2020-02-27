@@ -29,6 +29,7 @@ class AddActivity : AppCompatActivity() {
     //realm型の変数を宣言
     lateinit var realm: Realm
 
+    //後で初期化できるようにlateinitを使う
     //EditText型の変数宣言
     lateinit var titleEditText: EditText
     lateinit var contentEditText: EditText
@@ -45,6 +46,7 @@ class AddActivity : AppCompatActivity() {
     }
 
 
+    //intentに格納された情報の塊(bundle)を受け取る
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(app.sano.picchi.todoapp.R.layout.activity_add)

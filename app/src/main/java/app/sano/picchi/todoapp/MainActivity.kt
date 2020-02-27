@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), CustomOnItemClickLister {
 
 
+    //あとで初期化を行うような変数をつくることができる
     lateinit var realm: Realm
     lateinit var listView: ListView
     lateinit var itemList: MutableList<Memo>
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity(), CustomOnItemClickLister {
     lateinit var results:RealmResults<Memo>
 
 
+    //overrideはピヨ太の継承
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity(), CustomOnItemClickLister {
     }
 
 
+    //listにrealmの情報を表示する
     fun setMemoList() {
         //realmから読み取る
         results = realm.where(Memo::class.java).findAll()
@@ -42,18 +45,21 @@ class MainActivity : AppCompatActivity(), CustomOnItemClickLister {
         listView.adapter = adapter
     }
 
+    //戻ってきたときや表示されるときに呼ばれる
     override fun onResume() {
         super.onResume()
-
+        //これがないとlistの中に何も表示されなくなる
         setMemoList()
     }
 
 
+    //画面遷移
     fun create(view: View) {
         val intent = Intent(this, AddActivity::class.java)
         startActivity(intent)
     }
 
+    //最後に呼ばれる
     override fun onDestroy() {
         super.onDestroy()
 
@@ -64,10 +70,12 @@ class MainActivity : AppCompatActivity(), CustomOnItemClickLister {
     }
 
 
-    //メニューのとこ
+    //メニューの表示
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        //menuInflater == getMenuInflater()というメソッドを使うことで、main.xmlの内容を読み込んで、メニューに反映させ
         val inflater = menuInflater
 
+        // 参照するリソースは上でリソースファイルに付けた名前と同じもの
         inflater.inflate(R.menu.option_menu_list, menu)
 
         return super.onCreateOptionsMenu(menu)
@@ -119,6 +127,7 @@ class MainActivity : AppCompatActivity(), CustomOnItemClickLister {
 
     }
 
+    //itemが押されたら画面遷移
     override fun onItemClick(position: Int) {
         val memo = itemList.get(position)
         val intent = Intent(this@MainActivity, DetailActivity::class.java)

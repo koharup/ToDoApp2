@@ -17,6 +17,7 @@
             android:ems="10"
             android:hint="テーマ"
             android:inputType="textPersonName"
+            android:lines="3"
             android:textColor="#5D8D7F" />
 
         <EditText
